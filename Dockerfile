@@ -1,4 +1,4 @@
-FROM debian:jessie
+FROM devgeniem/base:debian
 
 MAINTAINER Onni Hakala <onni.hakala@geniem.com>
 
@@ -128,3 +128,17 @@ RUN \
     apt-get remove --purge -y $BUILD_DEPS $(apt-mark showauto) && \
     rm -rf /tmp/*
 
+RUN \
+    # Temp directory
+    mkdir /tmp/nginx/ \
+
+    # Symlink modules path to config path for easier usage
+    && ln -sf /usr/lib/nginx /etc/nginx/modules \
+
+    # Create nginx group
+    && addgroup -S nginx -g 8889 \
+    && adduser -S -G nginx -u 8888 nginx \
+
+    # Symlink nginx logs to system output
+    && ln -sf /dev/stdout /var/log/nginx/access.log \
+    && ln -sf /dev/stderr /var/log/nginx/error.log
