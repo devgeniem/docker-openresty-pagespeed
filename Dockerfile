@@ -136,8 +136,8 @@ RUN \
     && ln -sf /usr/lib/nginx /etc/nginx/modules \
 
     # Create nginx group
-    && addgroup -S nginx -g 8889 \
-    && adduser -S -G nginx -u 8888 nginx \
+    && groupadd -g 8888 nginx \
+    && useradd -u 8888 -g nginx nginx \
 
     # Symlink nginx logs to system output
     && ln -sf /dev/stdout /var/log/nginx/access.log \
