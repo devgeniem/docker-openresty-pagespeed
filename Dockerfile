@@ -126,7 +126,7 @@ RUN \
     ## Cleanup
     rm -rf /var/lib/apt/lists/* && \
     apt-get remove --purge -y $BUILD_DEPS $(apt-mark showauto) && \
-    rm -rf /tmp/*
+    rm -rf /tmp/* /var/log/apt/*
 
 RUN \
     # Temp directory
