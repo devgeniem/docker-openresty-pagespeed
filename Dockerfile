@@ -1,6 +1,5 @@
 FROM devgeniem/base:debian
-
-MAINTAINER Onni Hakala <onni.hakala@geniem.com>
+MAINTAINER Ville Pietarinen - Geniem Oy <ville.pietarinen-nospam@geniem.com>
 
 # Build Arguments for openresty/nginx
 ARG RESTY_VERSION="1.11.2.1"
