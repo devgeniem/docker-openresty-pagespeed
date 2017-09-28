@@ -78,6 +78,7 @@ ARG BUILD_DEPS='build-essential curl libreadline-dev libncurses5-dev libpcre3-de
 # Install base utils
 RUN \
     apt-get update && \
+    apt-get -y install apt-utils && \
     apt-get -y install $BUILD_DEPS --no-install-recommends && \
 
     cd /tmp/ && \
@@ -134,6 +135,7 @@ RUN \
 RUN \
     # Temp directory
     mkdir /tmp/nginx/ \
+    mkdir /tmp/nginx/pagespeed/images \
 
     # Symlink modules path to config path for easier usage
     && ln -sf /usr/lib/nginx /etc/nginx/modules \
