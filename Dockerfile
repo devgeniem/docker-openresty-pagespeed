@@ -135,7 +135,7 @@ RUN \
 RUN \
     # Temp directory
     mkdir /tmp/nginx/ \
-    mkdir /tmp/nginx/pagespeed/images \
+    mkdir -p /tmp/nginx/pagespeed/images \
 
     # Symlink modules path to config path for easier usage
     && ln -sf /usr/lib/nginx /etc/nginx/modules \
